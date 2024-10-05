@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django ex.2</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-color: rgb(220, 227, 235);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .main {
+            background-color: rgb(254, 254, 254);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .main h1, .main h2, .main h3, .main p {
+            text-align: center;
+            color: #3e82b9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="file"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #5768b5;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f3f3f3;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 500px) {
+            .main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Kamaraj College of Engineering and Technology</h1>
+        <h2>Web Applications using Django Framework</h2>
+        <p>Janavarshini G, B.TECH IT-B</p>
+        <h3>Creating and Working with Template</h3><br>
+        
+        <!-- ODD or EVEN Checker -->
+        <h3>ODD or EVEN Checker</h3>
+        <form method="GET">
+            <label for="number">Enter a number:</label>
+            <input type="text" id="number" name="number" />
+            <button type="submit">Check</button>
+        </form>
+        {% if number_result %}
+            <p>{{ number_result }}</p>
+        {% endif %}
+
+        <!-- Name Filter -->
+        <h3>Name Filter</h3>
+        <form method="GET">
+            <label for="character">Enter a character:</label>
+            <input type="text" id="character" name="character" />
+            <button type="submit">Search</button>
+        </form>
+        {% if name_result %}
+            <ul>
+                {% for name in name_result %}
+                    <li>{{ name }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
